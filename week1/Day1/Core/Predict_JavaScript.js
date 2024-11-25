@@ -113,10 +113,60 @@ function actuallyPrintingNames() {
 actuallyPrintingNames();
 }
 printNames(beatles);
-//
+// the output should be: Paul was found at index 0 // George was found at index 1 // John was found at index 2 // Ringo was found at index 3
+// then   name and index after loop is   Undefined Undefined 
+// the actual result is:  Paul was found at index 0 // George was found at index 1 // John was found at index 2 // Ringo was found at index 3
+// then   name and index after loop is   Ringo:4 
+//----------------------------------------------------------------------------------------------
+//Problem 7 
+
+//Why did the code produce that output?
+
+function actuallyPrintingNames() {
+    for (let index = 0; index < names.length; index++) {
+    let name = names[index];
+    console.log(name + ' was found at index ' + index);
+    }
+    console.log('name and index after loop is ' + name + ':' + index);
+}  
+
+//the code will give us nothing because we didn't invoke the function 
+// the actual result is nothing 
+//we didn't invoke the function 
+//-----------------------------------------------------------------
+
+// Problem 8 
+//Why did the code produce that output? Explain the output, including any possible errors and why they occurred. If there are no errors, explain the justification for each keyword used to declare variables.
+
+const beatles = ['Paul', 'George', 'John', 'Ringo'];
+function printNames(names) {
+function actuallyPrintingNames() {
+    for (let index = 0; index < names.length; index++) {
+    const name = names[index];
+    console.log(name + ' was found at index ' + index);
+    }
+}
+actuallyPrintingNames();
+}
+printNames(beatles);
+// the result should be Paul was found at index 0 // George was found at index 1 // John was found at index 2 // Ringo was found at index 3
+// the actual result is Paul was found at index 0 // George was found at index 1 // John was found at index 2 // Ringo was found at index 3
 
 
+//-----------------------------------------------------------------------------------------------------------------------------
+// Problem 9 
+//Why did the code produce that output? Explain why each console.log looks the way it does
 
+const planet = {
+	name:"Jupiter",
+	milesFromSun: 49849,
+	mass: 393983,
+            composition: ["gas", "liquid", "oxygen"]
+}
+const planetCopy = {...planet}
+console.log(planet.composition[0] === planetCopy.composition[0]) 
+console.log(planet === planetCopy)
 
-
+// the result should be true true 
+// the actual result is true false 
 
