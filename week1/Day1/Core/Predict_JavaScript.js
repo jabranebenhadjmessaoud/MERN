@@ -53,6 +53,9 @@ console.log(hashedPassword);
 // the result should be error 
 // the actual result is 12345 Undefined 
 
+// The object destructuring tries to extract a 'password' property from 'person'
+// Since no such property exists, 'hashedPassword' becomes undefined
+// The original 'password' variable remains unchanged
 
 //---------------------------------------------------------------------------------------
 // Problem 4 
@@ -170,3 +173,7 @@ console.log(planet === planetCopy)
 // the result should be true true 
 // the actual result is true false 
 
+
+// Spread operator creates a shallow copy
+// Nested arrays still reference the same memory
+// Top-level object is a new object, so comparison returns false
