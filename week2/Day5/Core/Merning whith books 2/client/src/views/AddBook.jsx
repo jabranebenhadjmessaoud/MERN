@@ -7,7 +7,7 @@ const AddBook = () => {
 const [title,setTitle]=useState("")
 const [author,setAuthor]=useState("")
 const [pages,setPages]=useState(0)
-const [isavalaible,setAvailable]=useState(false)
+const [isAvailable,setAvailable]=useState(false)
 const navigate = useNavigate();
 
 
@@ -15,12 +15,12 @@ const navigate = useNavigate();
 const submitHandler=(e)=>{
     
     e.preventDefault()
-    console.log(isavalaible);
+    console.log(isAvailable);
     axios.post('http://localhost:9999/api/createbook',{
         title,
         author,
         pages,
-        isavalaible,
+        isAvailable,
     })
     .then(res => {
         console.log(res);
@@ -62,7 +62,7 @@ return (
             </div>
             <div className='form-goup w-25'>
                 <label className='form-check-label'>Is it Available? </label>
-                <input type="checkbox" className='form-check-input' value={isavalaible}  onChange={(e)=>setAvailable(e.target.checked)} />
+                <input type="checkbox" className='form-check-input' value={isAvailable}  onChange={(e)=>setAvailable(e.target.checked)} />
             </div>
             <button className='btn btn-primary'>Add Book</button>
         </form>
