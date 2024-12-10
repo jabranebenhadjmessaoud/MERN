@@ -8,15 +8,12 @@ const App = () => {
     setBoxes([...boxes,newBox])
     console.log(boxes)
   }
-  
-  const deleteBox = (id) => {
-    setBoxes(boxes.filter((box) => box.index !== id));
-  };
+
   return (
     <div className='container mt-5'>
       <h1>Box generator</h1>
       <Form addBox={addBox}/>
-      <Show boxes={boxes} deleteBox={deleteBox}/>
+      <Show boxes={boxes}/>
     </div>
   )
 }
