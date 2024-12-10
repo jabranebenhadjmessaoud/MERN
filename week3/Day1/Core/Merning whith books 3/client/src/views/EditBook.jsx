@@ -79,6 +79,7 @@ return (
                 <div className='form-goup w-25'>
                     <label className='form-label'>Page Count</label>
                     <input type="number"  className='form-control' value={pages} onChange={(e)=>setPages(e.target.value)}/>
+                    {ErrorHandler.pages && <p>{ErrorHandler.pages.message}</p>}
                 </div>
                 <div className='form-goup w-25'>
                     <label className='form-check-label'>Is it Available? </label>

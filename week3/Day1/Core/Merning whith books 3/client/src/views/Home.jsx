@@ -25,14 +25,14 @@ const Home = () => {
 return (
 
     <>  
-    <div className="container-fluid ">
-        <div className='navbar navbar-expand-xl d-flex justify-content-around '>
-        <Navbar mokh="Book Catalog"/>
+    <div className="container-fluid  d-flex flex-column gap-3 ">
+        <div className='navbar navbar-expand-xl d-flex justify-content-around bg-light '>
+        <Navbar />
         <h1>Book Catalog</h1>
         </div>
         
 
-        <table className='table table-striped'>
+        <table className='table table-striped table-bordered table-responsive'>
             <thead>
                 <tr>
                     <th>Titile</th>
@@ -45,18 +45,20 @@ return (
             <tbody>
                 
                 {
-                    Allbooks.map((bok)=>
-                        (<tr>
+                    Allbooks.map((bok,i)=>
+                        (<tr key={i}>
                             <td>{bok.title}</td>
                             <td>{bok.author}</td>
                             <td>{bok.pages}</td>
                             <td className='d-flex gap-2 justify-content-center'>
-                                {bok.isAvailable?(<p >Yes</p>):(<p>No</p>)}|| <Link to={"/book/update/"+bok._id}><button className='btn btn-warning sm'>Edit</button></Link>
+                                {bok.isAvailable?(<p >Yes ✅ </p>):(<p>No❌</p>)}|| <Link to={"/book/update/"+bok._id}><button className='btn btn-warning sm'>Edit</button></Link>
                             </td>
                             <td>
                                 <Link to={"/book/"+bok._id}><button className='btn btn-success lg'>Book Details</button></Link>
                             </td>
-                        </tr>)
+                            
+                        </tr>
+                        )
                     )
                 }
             </tbody>

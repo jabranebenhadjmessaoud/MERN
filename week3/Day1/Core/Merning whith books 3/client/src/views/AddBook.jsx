@@ -8,6 +8,7 @@ const [title,setTitle]=useState("")
 const [author,setAuthor]=useState("")
 const [pages,setPages]=useState(0)
 const [isAvailable,setAvailable]=useState(false)
+const [ErrorHandler, setErrorHandler] = useState({})
 const navigate = useNavigate();
 
 
@@ -36,6 +37,7 @@ const submitHandler=(e)=>{
     })
     .catch((err) => {
         console.log(err);
+        setErrorHandler(err.response.data.errors)
     });
     
 }
@@ -51,14 +53,17 @@ return (
             <div className='form-goup w-25' >
                 <label className='form-label'>Title</label>
                 <input type="text" className='form-control' value={title} onChange={(e)=>setTitle(e.target.value)}/>
+                {ErrorHandler.title && <p>{ErrorHandler.title.message}</p>}
             </div>
             <div className='form-goup w-25'>
                 <label className='form-label'>Author Name</label>
                 <input type="text" className='form-control' value={author} onChange={(e)=>setAuthor(e.target.value)}/>
+                {ErrorHandler.author && <p>{ErrorHandler.author.message}</p>}
             </div>
             <div className='form-goup w-25'>
                 <label className='form-label'>Page Count</label>
                 <input type="number"  className='form-control' value={pages} onChange={(e)=>setPages(e.target.value)}/>
+                {ErrorHandler.pages && <p>{ErrorHandler.pages.message}</p>}
             </div>
             <div className='form-goup w-25'>
                 <label className='form-check-label'>Is it Available? </label>

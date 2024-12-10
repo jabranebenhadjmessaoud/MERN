@@ -17,7 +17,7 @@ const BookSchema= new Schema (
         pages:{
             type:Number,
             required:[true,"Please Enter valid count of pages"],
-            Min:[1,"The pages must be at least 1"]
+            min:[1,"The pages must be at least 1"]
         },
         isAvailable:{
             type:Boolean,
