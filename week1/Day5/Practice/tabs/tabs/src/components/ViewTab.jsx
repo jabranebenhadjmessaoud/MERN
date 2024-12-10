@@ -8,9 +8,10 @@ const ViewTab = (props) => {
 return (
 
 
-    <div>
+    <fieldset>
         {tabtext}
-    </div>
+    </fieldset>
+        
 )
 }
 
